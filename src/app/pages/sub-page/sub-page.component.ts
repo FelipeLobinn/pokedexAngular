@@ -8,7 +8,7 @@ import { PokeAPIService } from 'src/app/services/pokeAPIService/poke-api.service
 })
 export class SubPageComponent implements OnInit {
 
-  dataPoke: any;
+  dataGen: any;
   constructor(
     private apiServ : PokeAPIService,
   ) { }
@@ -18,9 +18,14 @@ export class SubPageComponent implements OnInit {
   }
 
   getPoke() {
-    this.apiServ.getPoke().subscribe((res) => {
-      this.dataPoke = res;
-      console.log(this.dataPoke);
+    let init: number, limit: number;
+    let pokeGen = (<HTMLSelectElement>document.getElementById('pokeGen')).value;
+
+    console.log('Init: ',init!, ' Limit: ', limit!)
+
+    this.apiServ.getPoke(pokeGen).subscribe((res) => {
+      this.dataGen = res;
+      console.log(this.dataGen);
     })
   }
 

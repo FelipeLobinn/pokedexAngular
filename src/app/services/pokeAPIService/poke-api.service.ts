@@ -12,7 +12,8 @@ export class PokeAPIService {
     private api: HttpClient
   ) { }
 
-  getPoke() {
-    return this.api.get<any>(environment.apiBase + 'pokemon?limit=100000&offset=0');
+  getPoke(pokeGen: string) {
+    //return this.api.get<any>(environment.apiBase + 'pokemon?limit='+limit+'&offset='+init);
+    return this.api.get<any>(environment.apiBase + 'generation/'+pokeGen)
   }
 }
