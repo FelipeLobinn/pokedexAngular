@@ -1,17 +1,24 @@
+
 <div class="container">
-    <div>
-        <select id="pokeGen" (change)="getPoke()">
-            <option value="1">Geração 1</option>
-            <option value="2">Geração 2</option>
-            <option value="3">Geração 3</option>
-            <option value="4">Geração 4</option>
-            <option value="5">Geração 5</option>
-            <option value="6">Geração 6</option>
-            <option value="7">Geração 7</option>
-            <option value="8">Geração 8</option>
-        </select>
-    </div>
-    <div *ngFor = "let poke of dataGen.pokemon_species"> 
-        <app-poke-card [dataPoke]="poke"></app-poke-card>
-    </div>
-</div>
+      <div class="generation-selector">
+          <select id="pokeGeneration" (change)="getGeneration()">
+              <option value="1">Geração 1</option>
+              <option value="2">Geração 2</option>
+              <option value="3">Geração 3</option>
+              <option value="4">Geração 4</option>
+              <option value="5">Geração 5</option>
+              <option value="6">Geração 6</option>
+              <option value="7">Geração 7</option>
+              <option value="8">Geração 8</option>
+          </select>
+      </div>
+      <div>
+          <div class="row">
+              <div class="col-sm pokemonCard" *ngFor = "let poke of dataGeneration?.pokemon_species">
+                  <app-poke-card [dataPokeByGen]="poke"></app-poke-card>
+              </div>
+          </div>
+      </div>
+
+  </div>
+
