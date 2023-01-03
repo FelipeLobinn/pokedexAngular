@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { timeout } from 'rxjs';
 import { PokeAPIService } from 'src/app/services/pokeAPIService/poke-api.service';
 
 @Component({
@@ -8,25 +9,25 @@ import { PokeAPIService } from 'src/app/services/pokeAPIService/poke-api.service
 })
 export class SubPageComponent implements OnInit {
 
-  dataGen: any;
+  dataGeneration: any;
+  dataPokemon: any;
   constructor(
     private apiServ : PokeAPIService,
   ) { }
 
   ngOnInit(): void {
-    this.getPoke();
+    this.getGeneration();
   }
 
-  getPoke() {
-    let init: number, limit: number;
-    let pokeGen = (<HTMLSelectElement>document.getElementById('pokeGen')).value;
+  getGeneration() {
+    let pokeGeneration = 'generation/' + (<HTMLSelectElement>document.getElementById('pokeGeneration')).value;
+    
+    
+    this.apiServ.getPoke(pokeGeneration).subscribe((response) => {
+      this.dataGeneration = response;
+      console.log(this.dataGeneration);
 
-    console.log('Init: ',init!, ' Limit: ', limit!)
-
-    this.apiServ.getPoke(pokeGen).subscribe((res) => {
-      this.dataGen = res;
-      console.log(this.dataGen);
-    })
+    })     
   }
-
 }
+

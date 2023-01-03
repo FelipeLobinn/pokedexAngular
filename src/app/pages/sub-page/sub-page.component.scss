@@ -1,0 +1,25 @@
+.generation-selector{
+  display: flex;
+  justify-content: center;
+}
+
+.generation-selector :hover{
+  cursor: pointer;
+}
+
+#pokeGeneration{
+  background-color: #4444;
+  padding: 7px 100px;
+  border-radius: 8px 8px 0 0;
+  margin: 6px;
+}
+
+#pokeGeneration option{
+  border-radius: 8px;
+}
+
+.pokemonCard{
+  display: inline-block;
+
+  width: 25%;
+}

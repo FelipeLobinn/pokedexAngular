@@ -1,5 +1,13 @@
 <div class="container">
-    <div>
-        <h4>{{ dataPoke.name }}</h4>
-    </div>
+      <div class="pokemon-card">
+        <div class="card-header row">
+          <h4>{{ dataPokemon?.name | titlecase }}</h4>
+        </div>
+        <div class="card-content row">
+          <img class="card-image" src="{{ dataPokemon?.sprites.front_default }}"/>
+        </div>
+        <div class="card-footer row">
+          <div *ngFor="let type of dataPokemon?.types" class="col-sm type-pokemon">{{type.type.name | titlecase}}</div>
+        </div>
+      </div>
 </div>
